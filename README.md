@@ -1,0 +1,88 @@
+
+<p align="center">
+<img src="./Assets/Images/pure-swift-ui-tools-logo.png" width="400"/>
+</p>
+
+[PureSwiftUITools][pure-swift-ui-tools] is a companion package to [PureSwiftUI][pure-swift-ui] which is designed to provide useful implementation of various concepts written for [SwiftUI][swift-ui].
+
+- [Motivation](#motivation)
+- [Components](#components)
+  - [Containers](#containers)
+    - [GridView](#gridview)
+- [Caveats](#caveats)
+- [Installation](#installation)
+- [Versioning](#versioning)
+- [Version History](#version-history)
+- [Licensing](#licensing)
+- [Contact](#contact)
+
+## Motivation
+
+Since `SwiftUI` is still relatively new, there are many use-cases that are not addressed either directly by Apple or by the community in general. [PureSwiftUITools][pure-swift-ui-tools] is a way of formulating various ideas into tools which can be used directly in projects, or used as a basis for learning, extending for bespoke purposes, or as a foundation for building a more robust approach. I see this package as a educational platform as much as anything else. As various utilities are introduced they will be accompanied by appropriate demos and gists that demonstrate usage.
+
+## Components
+
+### Containers
+
+#### GridView
+
+[GridView][containers-grid-view] facilitates the easy creation and manipulation of grids with a specified number of columns of rows.
+
+## Caveats
+
+Although [PureSwiftUITools][pure-swift-ui-tools] exports `SwiftUI` - meaning you don't need to import `SwiftUI` at the top of your views for compilation - unfortunately at the time of writing previews do not work if you are not explicitly importing `SwiftUI`. Hopefully this will be addressed in a future release.
+
+## Installation
+
+The `pure-swift-ui-tools` package can be found at:
+
+<https://github.com/CodeSlicing/pure-swift-ui-tools.git>
+
+Instructions for installing swift packages can be found [here][swift-package-installation].
+
+## Versioning
+
+This project adheres to a [semantic versioning](https://semver.org) paradigm. I'm sure a lot will change after WW20, so that's probably when version 2.0.0+ will appear.
+
+## Version History
+
+- [1.0.0][tag-1.0.0] Commit initial code with GridView
+
+## Licensing
+
+This project is licensed under the MIT License - see [here][mit-licence] for details.
+
+## Contact
+
+You can contact me on Twitter [@CodeSlice][codeslice-twitter]. Happy to hear suggestions for improving the package, or feature suggestions. I've probably made a few boo boos along the way, so I'm open to course correction. I won't be open-sourcing the project for the moment since I simply don't have time to administer PRs at this point, though I do intend to do so in the future if there's enough interest.
+
+<!---
+ external links:
+--->
+
+[pure-swift-ui]: https://github.com/CodeSlicing/pure-swift-ui
+[pure-swift-ui-tools]: https://github.com/CodeSlicing/pure-swift-ui-tools
+[codeslice-twitter]: https://twitter.com/CodeSlice
+[swift-ui]: https://developer.apple.com/xcode/swiftui/
+[swift-functions]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html
+[swift-package-installation]: https://medium.com/better-programming/add-swift-package-dependency-to-an-ios-project-with-xcode-11-remote-local-public-private-3a7577fac6b2
+
+<!---
+gists:
+--->
+
+[gist-offset-to-position-demo]: https://gist.github.com/CodeSlicing/2c5376552fa8c27456925370403caa46
+[gist-relative-offset-demo]: https://gist.github.com/CodeSlicing/6873695fd0113c27d5cdd8591eca9d1d
+
+<!---
+version links:
+--->
+
+[tag-1.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.0.0
+
+<!---
+ local docs:
+--->
+
+[mit-licence]: ./Assets/Docs/LICENCE.md
+[containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
