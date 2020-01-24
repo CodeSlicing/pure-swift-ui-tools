@@ -6,9 +6,11 @@
 [PureSwiftUITools][pure-swift-ui-tools] is a companion package to [PureSwiftUI][pure-swift-ui] which is designed to provide useful implementation of various concepts written for [SwiftUI][swift-ui].
 
 - [Motivation](#motivation)
-- [Components](#components)
+- [Documentation](#documentation)
   - [Containers](#containers)
     - [GridView](#gridview)
+  - [Utilities](#utilities)
+    - [RGBGradientMap](#rgbgradientmap)
 - [Caveats](#caveats)
 - [Installation](#installation)
 - [Versioning](#versioning)
@@ -20,13 +22,19 @@
 
 Since `SwiftUI` is still relatively new, there are many use-cases that are not addressed either directly by Apple or by the community in general. [PureSwiftUITools][pure-swift-ui-tools] is a way of formulating various ideas into tools which can be used directly in projects, or used as a basis for learning, extending for bespoke purposes, or as a foundation for building a more robust approach. I see this package as a educational platform as much as anything else. As various utilities are introduced they will be accompanied by appropriate demos and gists that demonstrate usage.
 
-## Components
+## Documentation
 
 ### Containers
 
 #### GridView
 
 [GridView][containers-grid-view] facilitates the easy creation and manipulation of grids with a specified number of columns of rows.
+
+### Utilities
+
+#### RGBGradientMap
+
+[RGBGradientMap][rgb-gradient-map] allows the extraction of colors along a gradient for use where context sensitive colors are a requirement of the UX. 
 
 ## Caveats
 
@@ -86,3 +94,4 @@ version links:
 
 [mit-licence]: ./Assets/Docs/LICENCE.md
 [containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
+[rgb-gradient-map]: ./Assets/Docs/Components/Model/Color/rgb-gradient-map.md
