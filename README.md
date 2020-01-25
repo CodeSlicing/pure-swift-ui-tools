@@ -1,6 +1,8 @@
 
 <p align="center">
+<a href="https://github.com/CodeSlicing/pure-swift-ui-tools">
 <img src="./Assets/Images/pure-swift-ui-tools-logo.png" width="400"/>
+</a>
 </p>
 
 [PureSwiftUITools][pure-swift-ui-tools] is a companion package to [PureSwiftUI][pure-swift-ui] which is designed to provide useful implementation of various concepts written for [SwiftUI][swift-ui].
