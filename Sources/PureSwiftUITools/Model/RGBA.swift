@@ -9,7 +9,7 @@ import PureSwiftUI
 
 import SwiftUI
 
-public struct RGBColor: Hashable {
+public struct RGBA: Hashable {
     var red: Double
     var green: Double
     var blue: Double
@@ -24,7 +24,7 @@ public struct RGBColor: Hashable {
     
     private static let equalsTolerance = 0.0001
     
-    public static func == (lhs: RGBColor, rhs: RGBColor) -> Bool {
+    public static func == (lhs: RGBA, rhs: RGBA) -> Bool {
         return abs(lhs.red - rhs.red) <= equalsTolerance &&
             abs(lhs.green - rhs.green) <= equalsTolerance &&
             abs(lhs.blue - rhs.blue) <= equalsTolerance
@@ -33,15 +33,15 @@ public struct RGBColor: Hashable {
 
 // MARK: ----- INTERPOLATION
 
-public extension RGBColor {
+public extension RGBA {
 
-    func interpolate(to targetColor: RGBColor, fraction: Double) -> RGBColor {
+    func interpolate(to targetColor: RGBA, fraction: Double) -> RGBA {
         Self.interpolateColor(from: self, to: targetColor, fraction: fraction)
     }
 
-    static func interpolateColor(from: RGBColor, to: RGBColor, fraction: Double) -> RGBColor {
+    static func interpolateColor(from: RGBA, to: RGBA, fraction: Double) -> RGBA {
 
-        return RGBColor(
+        return RGBA(
             interpolateValue(from: from.red, to: to.red, fraction: fraction),
             interpolateValue(from: from.green, to: to.green, fraction: fraction),
             interpolateValue(from: from.blue, to: to.blue, fraction: fraction),
@@ -59,54 +59,54 @@ public extension RGBColor {
 
 // MARK: ----- SYSTEM COLORS
 
-public extension RGBColor {
+public extension RGBA {
 
     // SwiftUI colors
-    static let white = RGBColor(1, 1, 1)
-    static let black = RGBColor(0, 0, 0)
-    static let gray = RGBColor(142 / 255, 142 / 255, 142 / 255)
-    static let red = RGBColor(1,58 / 255, 48 / 255)
-    static let green = RGBColor(52.0 / 255 , 199.0 / 255, 89.0 / 255)
-    static let blue = RGBColor(0, 122 / 255, 1)
-    static let orange = RGBColor(1, 149 / 255, 0)
-    static let yellow = RGBColor(1, 204 / 255, 1.0 / 255)
-    static let pink = RGBColor(1, 44 / 255, 85 / 255)
-    static let purple = RGBColor(175 / 255, 82 / 255, 222 / 255)
-    static let clear = RGBColor(0, 0, 0, 0)
+    static let white = RGBA(1, 1, 1)
+    static let black = RGBA(0, 0, 0)
+    static let gray = RGBA(142 / 255, 142 / 255, 142 / 255)
+    static let red = RGBA(1,58 / 255, 48 / 255)
+    static let green = RGBA(52.0 / 255 , 199.0 / 255, 89.0 / 255)
+    static let blue = RGBA(0, 122 / 255, 1)
+    static let orange = RGBA(1, 149 / 255, 0)
+    static let yellow = RGBA(1, 204 / 255, 1.0 / 255)
+    static let pink = RGBA(1, 44 / 255, 85 / 255)
+    static let purple = RGBA(175 / 255, 82 / 255, 222 / 255)
+    static let clear = RGBA(0, 0, 0, 0)
     
     // pure colors
-    static let pureRed = RGBColor(1, 0, 0)
-    static let pureGreen = RGBColor(0, 1, 0)
-    static let pureBlue = RGBColor(0, 0, 1)
-    static let pureYellow = RGBColor(1, 1, 0)
-    static let pureMagenta = RGBColor(1, 0, 1)
-    static let pureOrange = RGBColor(1, 0.5, 0)
-    static let purePurple = RGBColor(0.5, 0, 0.5)
+    static let pureRed = RGBA(1, 0, 0)
+    static let pureGreen = RGBA(0, 1, 0)
+    static let pureBlue = RGBA(0, 0, 1)
+    static let pureYellow = RGBA(1, 1, 0)
+    static let pureMagenta = RGBA(1, 0, 1)
+    static let pureOrange = RGBA(1, 0.5, 0)
+    static let purePurple = RGBA(0.5, 0, 0.5)
 }
 
 // MARK: ----- OPACITY
 
-public extension RGBColor {
+public extension RGBA {
 
-    func withRed(_ value: Double) -> RGBColor {
+    func withRed(_ value: Double) -> RGBA {
         var newRGB = self
         newRGB.red = value
         return newRGB
     }
     
-    func withGreen(_ value: Double) -> RGBColor {
+    func withGreen(_ value: Double) -> RGBA {
         var newRGB = self
         newRGB.green = value
         return newRGB
     }
     
-    func withBlue(_ value: Double) -> RGBColor {
+    func withBlue(_ value: Double) -> RGBA {
         var newRGB = self
         newRGB.blue = value
         return newRGB
     }
 
-    func withOpacity(_ value: Double) -> RGBColor {
+    func withOpacity(_ value: Double) -> RGBA {
         var newRGB = self
         newRGB.alpha = value
         return newRGB
@@ -115,7 +115,7 @@ public extension RGBColor {
 
 // MARK: ----- TYPE COERCION
 
-public extension RGBColor {
+public extension RGBA {
     
     var asColor: Color {
         Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
@@ -138,21 +138,23 @@ public extension RGBColor {
 
 public extension CIColor {
     
-    var asRGBColor: RGBColor {
-        return RGBColor(self.red.asDouble, self.green.asDouble, self.blue.asDouble, self.alpha.asDouble)
+    var asRGBA: RGBA {
+        return RGBA(self.red.asDouble, self.green.asDouble, self.blue.asDouble, self.alpha.asDouble)
     }
 }
 
 public extension UIColor {
     
-    var asRGBColor: RGBColor {
-        CIColor(color: self).asRGBColor
+    var asRGBA: RGBA {
+        CIColor(color: self).asRGBA
     }
 }
 
 public extension CGColor {
     
-    var asRGBColor: RGBColor {
-        CIColor(cgColor: self).asRGBColor
+    static let clear = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+    
+    var asRGBA: RGBA {
+        CIColor(cgColor: self).asRGBA
     }
 }

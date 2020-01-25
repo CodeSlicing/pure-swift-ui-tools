@@ -10,7 +10,7 @@
   - [Containers](#containers)
     - [GridView](#gridview)
   - [Utilities](#utilities)
-    - [RGBGradientMap](#rgbgradientmap)
+    - [GradientMap](#gradientmap)
 - [Caveats](#caveats)
 - [Installation](#installation)
 - [Versioning](#versioning)
@@ -32,9 +32,9 @@ Since `SwiftUI` is still relatively new, there are many use-cases that are not a
 
 ### Utilities
 
-#### RGBGradientMap
+#### GradientMap
 
-[RGBGradientMap][rgb-gradient-map] allows the extraction of colors along a gradient for use where context sensitive colors are a requirement of the UX. 
+[GradientMap][gradient-map] allows the extraction of colors along a gradient for use where context sensitive colors are a requirement of the UX. 
 
 ## Caveats
 
@@ -55,6 +55,7 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 ## Version History
 
 - [1.0.0][tag-1.0.0] Commit initial code with GridView
+- [1.1.0][tag-1.1.0] Add GradientMap and RGBA with appropriate supporting extensions
 
 ## Licensing
 
@@ -87,6 +88,7 @@ version links:
 --->
 
 [tag-1.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.0.0
+[tag-1.1.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.1.0
 
 <!---
  local docs:
@@ -94,4 +96,4 @@ version links:
 
 [mit-licence]: ./Assets/Docs/LICENCE.md
 [containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
-[rgb-gradient-map]: ./Assets/Docs/Components/Model/Color/rgb-gradient-map.md
+[gradient-map]: ./Assets/Docs/Components/Model/Color/gradient-map.md
