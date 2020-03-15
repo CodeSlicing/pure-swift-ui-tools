@@ -13,6 +13,8 @@
     - [GridView](#gridview)
   - [Utilities](#utilities)
     - [GradientMap](#gradientmap)
+  - [Extensions](#extensions)
+    - [Inner Shadows](#inner-shadows)
 - [Caveats](#caveats)
 - [Installation](#installation)
 - [Versioning](#versioning)
@@ -38,6 +40,12 @@ Since `SwiftUI` is still relatively new, there are many use-cases that are not a
 
 [GradientMap][gradient-map] allows the extraction of colors along a gradient for use where context sensitive colors are a requirement of the UX. 
 
+### Extensions
+
+#### Inner Shadows
+
+These extensions bring inner shadows to all major component types in `SwiftUI`. You can read about them [here][inner-shadows].
+
 ## Caveats
 
 Although [PureSwiftUITools][pure-swift-ui-tools] exports `SwiftUI` - meaning you don't need to import `SwiftUI` at the top of your views for compilation - unfortunately at the time of writing previews do not work if you are not explicitly importing `SwiftUI`. Hopefully this will be addressed in a future release.
@@ -58,6 +66,7 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 
 - [1.0.0][tag-1.0.0] Commit initial code with GridView
 - [1.1.0][tag-1.1.0] Add GradientMap and RGBA with appropriate supporting extensions
+- [1.1.0][tag-1.1.0] Add inner shadows 
 
 ## Licensing
 
@@ -91,6 +100,8 @@ version links:
 
 [tag-1.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.0.0
 [tag-1.1.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.1.0
+[tag-1.2.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.2.0
+
 
 <!---
  local docs:
@@ -99,3 +110,4 @@ version links:
 [mit-licence]: ./Assets/Docs/LICENCE.md
 [containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
 [gradient-map]: ./Assets/Docs/Components/Model/Color/gradient-map.md
+[inner-shadows]: ./Assets/Docs/Components/Extensions/InnerShadows/inner-shadows.md

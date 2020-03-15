@@ -9,7 +9,7 @@ GridView(5, spacing: 8) { column, row in
     TitleText("\(column),\(row)", .white)
         .greedyFrame()
         .clipRoundedRectangleWithStroke(10, .black, lineWidth: 2, fill: Color.blue)
-        .shadow(5)
+        .shadow(5)                      
 }
 .frame(300, 300)
 ```
