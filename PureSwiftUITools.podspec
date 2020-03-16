@@ -17,5 +17,5 @@ Since SwiftUI is still relatively new, there are many use-cases that are not add
   spec.source_files  = "Sources/**/*.{swift}"
   spec.swift_version = "5.1"
   spec.framework  = "SwiftUI"
-  spec.dependency 'PureSwiftUI', :git => 'https://github.com/Brett-Best/pure-swift-ui.git', :branch => 'develop'
+  spec.dependency 'PureSwiftUI'
 end
