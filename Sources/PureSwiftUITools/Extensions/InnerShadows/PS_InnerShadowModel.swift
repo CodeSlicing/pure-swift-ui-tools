@@ -88,6 +88,11 @@ public extension PS_InnerShadowConfig {
 public struct FillAndContent<V: View> {
     let fillStyle: FillStyle
     let content: V?
+    
+    public init(_ fillStyle: FillStyle, _ content: V?) {
+        self.fillStyle = fillStyle
+        self.content = content
+    }
 }
 
 public extension FillAndContent {
@@ -101,13 +106,18 @@ public extension FillAndContent {
     }
     
     static func fill<V: View>(_ content: V, eoFill: Bool = false, antialiased: Bool = true) -> FillAndContent<V> {
-        FillAndContent<V>(fillStyle: FillStyle(eoFill: eoFill, antialiased: antialiased), content: content)
+        FillAndContent<V>(FillStyle(eoFill: eoFill, antialiased: antialiased), content)
     }
 }
 
 public struct StrokeAndContent<V: View> {
     let style: StrokeStyle
     let fillAndContent: FillAndContent<V>
+    
+    public init(_ style: StrokeStyle, _ fillAndContent: FillAndContent<V>) {
+        self.style = style
+        self.fillAndContent = fillAndContent
+    }
 }
 
 public extension StrokeAndContent {
@@ -116,7 +126,7 @@ public extension StrokeAndContent {
     }
     
     static func stroke<V: View, T: UINumericType>(_ content: V, lineWidth: T) -> StrokeAndContent<V> {
-        StrokeAndContent<V>(style: StrokeStyle(lineWidth: lineWidth.asCGFloat), fillAndContent: .fill(content))
+        StrokeAndContent<V>(StrokeStyle(lineWidth: lineWidth.asCGFloat), .fill(content))
     }
     
     static func stroke(style: StrokeStyle) -> StrokeAndContent<Color> {
@@ -124,7 +134,7 @@ public extension StrokeAndContent {
     }
     
     static func stroke<V: View>(_ content: V, style: StrokeStyle) -> StrokeAndContent<V> {
-        StrokeAndContent<V>(style: style, fillAndContent: .fill(content))
+        StrokeAndContent<V>(style, .fill(content))
     }
 }
 
@@ -132,7 +142,7 @@ public struct ShapeAndContent<S: Shape, V: View> {
     let shape: S
     let content: V?
     
-    init(_ shape: S, _ content: V? = nil) {
+    public init(_ shape: S, _ content: V? = nil) {
         self.shape = shape
         self.content = content
     }

@@ -66,7 +66,8 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 
 - [1.0.0][tag-1.0.0] Commit initial code with GridView
 - [1.1.0][tag-1.1.0] Add GradientMap and RGBA with appropriate supporting extensions
-- [1.1.0][tag-1.1.0] Add inner shadows 
+- [1.2.0][tag-1.2.0] Add inner shadows
+- [1.3.0][tag-1.3.0] Fix segmentation fault in Xcode 11.4
 
 ## Licensing
 
@@ -101,6 +102,7 @@ version links:
 [tag-1.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.0.0
 [tag-1.1.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.1.0
 [tag-1.2.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.2.0
+[tag-1.3.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.0
 
 
 <!---
