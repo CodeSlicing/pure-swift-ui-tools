@@ -41,10 +41,10 @@ internal struct PSInnerShadowShapeOffsetViewModifier<S: Shape>: AnimatableModifi
         }
     }
     
-    init<T: UINumericType>(shape: S, fillStyle: FillStyle, radius: T, offset: CGPoint = .zero, color: Color) {
+    init(shape: S, fillStyle: FillStyle, radius: CGFloat, offset: CGPoint = .zero, color: Color) {
         self.shape = shape
         self.fillStyle = fillStyle
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.color = color
     }
@@ -73,10 +73,10 @@ internal struct PSInnerShadowShapeOffsetWithAngleViewModifier<S: Shape>: Animata
         }
     }
     
-    init<T: UINumericType>(shape: S, fillStyle: FillStyle, radius: T, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
+    init(shape: S, fillStyle: FillStyle, radius: CGFloat, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
         self.shape = shape
         self.fillStyle = fillStyle
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.angle = angle
         self.color = color
@@ -129,10 +129,10 @@ internal struct PSInnerShadowImageOffsetViewModifier<V: View>: AnimatableModifie
         }
     }
     
-    init<T: UINumericType>(image: Image, content: V, radius: T, offset: CGPoint = .zero, color: Color) {
+    init(image: Image, content: V, radius: CGFloat, offset: CGPoint = .zero, color: Color) {
         self.image = image
         self.content = content
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.color = color
     }
@@ -162,10 +162,10 @@ internal struct PSInnerShadowImageOffsetWithAngleViewModifier<V: View>: Animatab
         }
     }
     
-    init<T: UINumericType>(image: Image, content: V, radius: T, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
+    init(image: Image, content: V, radius: CGFloat, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
         self.image = image
         self.content = content
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.angle = angle
         self.color = color
@@ -229,10 +229,10 @@ internal struct PSInnerShadowTextOffsetViewModifier<V: View>: AnimatableModifier
         }
     }
     
-    init<T: UINumericType>(text: Text, content: V, radius: T, offset: CGPoint = .zero, color: Color) {
+    init(text: Text, content: V, radius: CGFloat, offset: CGPoint = .zero, color: Color) {
         self.text = text
         self.content = content
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.color = color
     }
@@ -262,10 +262,10 @@ internal struct PSInnerShadowTextOffsetWithAngleViewModifier<V: View>: Animatabl
         }
     }
     
-    init<T: UINumericType>(text: Text, content: V, radius: T, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
+    init(text: Text, content: V, radius: CGFloat, offset: CGFloat = 0, angle: Angle = .top, color: Color) {
         self.text = text
         self.content = content
-        self.radius = radius.asCGFloat
+        self.radius = radius
         self.offset = offset
         self.angle = angle
         self.color = color

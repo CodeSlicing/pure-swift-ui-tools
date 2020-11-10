@@ -103,7 +103,7 @@ public struct GradientMap {
 public extension GradientMap {
 
     private func fractionAsIndex(_ fraction: Double) -> Int {
-        (fraction * (count - 1)).asInt
+        (fraction * (count - 1).asDouble).asInt
     }
     
     func colorAt(_ fraction: Double, default defaultColor: Color = .clear) -> Color {

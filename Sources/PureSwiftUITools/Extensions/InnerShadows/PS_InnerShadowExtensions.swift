@@ -26,18 +26,18 @@ private struct InnerShadowOnViewViewModifier<S: Shape, V: View>: ViewModifier {
 
 public extension View {
     
-    @inlinable
-    func ps_innerShadow<T: UINumericType>(_ config: PS_InnerShadowConfig) -> some View {
-        ps_innerShadow(ShapeAndContent(Rectangle(), Color.clear), config)
-    }
+//    @inlinable
+//    func ps_innerShadow(_ config: PS_InnerShadowConfig) -> some View {
+//        ps_innerShadow(ShapeAndContent(Rectangle(), Color.clear), config)
+//    }
     
     @inlinable
-    func ps_innerShadow<T: UINumericType>(radius: T, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(ShapeAndContent(Rectangle(), Color.clear), radius: radius, offset: offset, color: color)
     }
     
     @inlinable
-    func ps_innerShadow<T: UINumericType, TD: UINumericType>(radius: T, offset: CGPoint = .zero, intensity: TD) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(ShapeAndContent(Rectangle(), Color.clear), .config(radius: radius, offset: offset, intensity: intensity))
     }
 
@@ -46,12 +46,12 @@ public extension View {
     }
     
     @inlinable
-    func ps_innerShadow<S: Shape, V: View, TR: UINumericType>(_ shapeContent: ShapeAndContent<S, V>, radius: TR, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<S: Shape, V: View>(_ shapeContent: ShapeAndContent<S, V>, radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(shapeContent, .config(radius: radius, offset: offset, color: color))
     }
     
     @inlinable
-    func ps_innerShadow<S: Shape, V: View, TR: UINumericType, TD: UINumericType>(_ shapeContent: ShapeAndContent<S, V>, radius: TR, offset: CGPoint = .zero, intensity: TD) -> some View {
+    func ps_innerShadow<S: Shape, V: View>(_ shapeContent: ShapeAndContent<S, V>, radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(shapeContent, .config(radius: radius, offset: offset, intensity: intensity))
     }
 
@@ -66,12 +66,12 @@ public extension View {
     }
     
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType, TI: UINumericType>(radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(Color.clear, radius: radius, offset: offset, angle: angle, intensity: intensity)
     }
     
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType>(radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(Color.clear, radius: radius, offset: offset, angle: angle, color: color)
     }
     
@@ -81,22 +81,22 @@ public extension View {
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(.rectangle(content), radius: radius, offset: offset, angle: angle, intensity: intensity)
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(.rectangle(content), radius: radius, offset: offset, angle: angle, color: color)
     }
 
     @inlinable
-    func ps_innerShadow<S: Shape, V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ shapeContent: ShapeAndContent<S, V>, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<S: Shape, V: View>(_ shapeContent: ShapeAndContent<S, V>, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(shapeContent, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<S: Shape, V: View, TR: UINumericType, TO: UINumericType>(_ shapeContent: ShapeAndContent<S, V>, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<S: Shape, V: View>(_ shapeContent: ShapeAndContent<S, V>, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(shapeContent, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 }
@@ -124,12 +124,12 @@ public extension Image {
 //    }
     
     @inlinable
-    func ps_innerShadow<V: View, T: UINumericType, TI: UINumericType>(_ content: V, radius: T, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, intensity: intensity))
     }
     
     @inlinable
-    func ps_innerShadow<V: View, T: UINumericType>(_ content: V, radius: T, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, color: color))
     }
 
@@ -139,32 +139,32 @@ public extension Image {
     }
 
     @inlinable
-    func ps_innerShadow<T: UINumericType, TI: UINumericType>(radius: T, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<T: UINumericType>(radius: T, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType, TI: UINumericType>(radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(.config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType>(radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(.config(radius: radius, offset: offset, angle: angle, color: color))
     }
 }
@@ -207,22 +207,22 @@ public extension Shape {
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TI: UINumericType>(_ strokeAndContent: StrokeAndContent<V>, radius: TR, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ strokeAndContent: StrokeAndContent<V>, radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(strokeAndContent, .config(radius: radius, offset: offset, intensity: intensity))
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType>(_ strokeAndContent: StrokeAndContent<V>, radius: TR, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ strokeAndContent: StrokeAndContent<V>, radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(strokeAndContent, .config(radius: radius, offset: offset, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ strokeAndContent: StrokeAndContent<V>, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ strokeAndContent: StrokeAndContent<V>, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(strokeAndContent, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType>(_ strokeAndContent: StrokeAndContent<V>, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ strokeAndContent: StrokeAndContent<V>, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(strokeAndContent, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 }
@@ -231,22 +231,22 @@ public extension Shape {
     
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TI: UINumericType>(_ fillAndContent: FillAndContent<V>, radius: TR, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ fillAndContent: FillAndContent<V>, radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(fillAndContent, .config(radius: radius, offset: offset, intensity: intensity))
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType>(_ fillAndContent: FillAndContent<V>, radius: TR, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ fillAndContent: FillAndContent<V>, radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(fillAndContent, .config(radius: radius, offset: offset, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ fillAndContent: FillAndContent<V>, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ fillAndContent: FillAndContent<V>, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(fillAndContent, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType>(_ fillAndContent: FillAndContent<V>, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ fillAndContent: FillAndContent<V>, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(fillAndContent, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 
@@ -281,22 +281,22 @@ public extension Text {
 //    }
     
     @inlinable
-    func ps_innerShadow<T: UINumericType, TI: UINumericType>(radius: T, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, intensity: intensity))
     }
     
     @inlinable
-    func ps_innerShadow<V: View, T: UINumericType, TI: UINumericType>(_ content: V, radius: T, offset: CGPoint = .zero, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGPoint = .zero, intensity: CGFloat) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<T: UINumericType>(radius: T, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, T: UINumericType>(_ content: V, radius: T, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGPoint = .zero, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, color: color))
     }
 
@@ -317,22 +317,22 @@ public extension Text {
 public extension Text {
     
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType, TI: UINumericType>(radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
     
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType, TI: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, intensity: TI) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, angle: angle, intensity: intensity))
     }
 
     @inlinable
-    func ps_innerShadow<TR: UINumericType, TO: UINumericType>(radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow(radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(Color.clear, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 
     @inlinable
-    func ps_innerShadow<V: View, TR: UINumericType, TO: UINumericType>(_ content: V, radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
+    func ps_innerShadow<V: View>(_ content: V, radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> some View {
         ps_innerShadow(content, .config(radius: radius, offset: offset, angle: angle, color: color))
     }
 

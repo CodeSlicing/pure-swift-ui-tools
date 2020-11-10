@@ -68,6 +68,8 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 - [1.1.0][tag-1.1.0] Add GradientMap and RGBA with appropriate supporting extensions
 - [1.2.0][tag-1.2.0] Add inner shadows
 - [1.3.0][tag-1.3.0] Fix segmentation fault in Xcode 11.4
+- [1.3.1][tag-1.3.1] Updating dependency on PureSwiftUI to 1.20.0
+- [2.0.0][tag-2.0.0] Updating dependency on PureSwiftUI to 2.0.0. Breaking changes in PureSwiftUI 2.0.0 (although only on the type system) so be careful if using this library to pull in PureSwiftUI. 
 
 ## Licensing
 
@@ -103,6 +105,8 @@ version links:
 [tag-1.1.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.1.0
 [tag-1.2.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.2.0
 [tag-1.3.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.0
+[tag-1.3.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.1
+[tag-2.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.0
 
 
 <!---
@@ -113,3 +117,4 @@ version links:
 [containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
 [gradient-map]: ./Assets/Docs/Components/Model/Color/gradient-map.md
 [inner-shadows]: ./Assets/Docs/Components/Extensions/InnerShadows/inner-shadows.md
+
