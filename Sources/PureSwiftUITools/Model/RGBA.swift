@@ -125,17 +125,26 @@ public extension RGBA {
         CGColor(srgbRed: red.asCGFloat, green: green.asCGFloat, blue: blue.asCGFloat, alpha: alpha.asCGFloat)
     }
 
+    #if !os(watchOS)
+    #if canImport(UIKit)
     var asUIColor: UIColor {
         UIColor(ciColor: asCIColor)
     }
+    #endif
 
     var asCIColor: CIColor {
         CIColor(red: red.asCGFloat, green: green.asCGFloat, blue: blue.asCGFloat, alpha: alpha.asCGFloat)
     }
+    #else
+    var asUIColor: UIColor {
+      UIColor(cgColor: asCGColor)
+    }
+    #endif
 }
 
 // MARK: ----- FOUNDATION EXTENSIONS
 
+#if !os(watchOS)
 public extension CIColor {
     
     var asRGBA: RGBA {
@@ -143,12 +152,14 @@ public extension CIColor {
     }
 }
 
+#if canImport(UIKit)
 public extension UIColor {
     
     var asRGBA: RGBA {
         CIColor(color: self).asRGBA
     }
 }
+#endif
 
 public extension CGColor {
     
@@ -158,3 +169,4 @@ public extension CGColor {
         CIColor(cgColor: self).asRGBA
     }
 }
+#endif
