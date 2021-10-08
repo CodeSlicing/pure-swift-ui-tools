@@ -70,6 +70,8 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 - [1.3.0][tag-1.3.0] Fix segmentation fault in Xcode 11.4
 - [1.3.1][tag-1.3.1] Updating dependency on PureSwiftUI to 1.20.0
 - [2.0.0][tag-2.0.0] Updating dependency on PureSwiftUI to 2.0.0. Breaking changes in PureSwiftUI 2.0.0 (although only on the type system) so be careful if using this library to pull in PureSwiftUI. 
+- [2.0.1][tag-2.0.1] Updating dependency on PureSwiftUI to 2.0.1. 
+- [2.0.2][tag-2.0.2] Updating dependency on PureSwiftUI to 2.0.1 to next major version.
 
 ## Licensing
 
@@ -107,6 +109,8 @@ version links:
 [tag-1.3.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.0
 [tag-1.3.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.1
 [tag-2.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.0
+[tag-2.0.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.1
+[tag-2.0.2]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.2
 
 
 <!---
