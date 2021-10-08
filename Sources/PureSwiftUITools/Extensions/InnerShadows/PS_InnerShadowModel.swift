@@ -10,7 +10,7 @@ import PureSwiftUI
 public let ps_defaultInnerShadowColor = Color(white: 0.56)
 
 private func convertIntensityToColor(_ intensity: CGFloat) -> Color {
-    return Color(white: 1 - intensity.asDouble.clamped(to: 1, spanZero: false))
+    return Color(white: 1 - intensity.asDouble.clamped(max: 1, abs: false))
 }
 
 public struct PS_InnerShadowConfig {
