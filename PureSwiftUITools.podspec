@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "PureSwiftUITools"
-  spec.version      = "1.3.0"
+  spec.version      = "3.0.0-beta-1"
   spec.summary      = "PureSwiftUITools is a companion package to PureSwiftUI which is designed to provide useful implementation of various concepts written for SwiftUI."
   spec.description  = <<-DESC
 Since SwiftUI is still relatively new, there are many use-cases that are not addressed either directly by Apple or by the community in general. PureSwiftUITools is a way of formulating various ideas into tools which can be used directly in projects, or used as a basis for learning, extending for bespoke purposes, or as a foundation for building a more robust approach. I see this package as a educational platform as much as anything else. As various utilities are introduced they will be accompanied by appropriate demos and gists that demonstrate usage.
@@ -11,11 +11,14 @@ Since SwiftUI is still relatively new, there are many use-cases that are not add
   spec.social_media_url   = "https://twitter.com/CodeSlice"
   
   spec.ios.deployment_target = "13.0"
+  spec.macos.deployment_target = "10.15"
+  spec.tvos.deployment_target = "13.0"
+  spec.watchos.deployment_target = "6.0"
   
   spec.source = { :git => "https://github.com/CodeSlicing/pure-swift-ui-tools.git", :tag => "#{spec.version}" }
 
   spec.source_files  = "Sources/**/*.{swift}"
   spec.swift_version = "5.1"
   spec.framework  = "SwiftUI"
-  spec.dependency 'PureSwiftUI', '~> 1.15.0'
+  spec.dependency 'PureSwiftUI', '~> 3.0.0-beta-9'
 end
