@@ -60,7 +60,7 @@ Instructions for installing swift packages can be found [here][swift-package-ins
 
 ## Versioning
 
-This project adheres to a [semantic versioning](https://semver.org) paradigm. I'm sure a lot will change after WW20, so that's probably when version 2.0.0+ will appear.
+This project adheres to a [semantic versioning](https://semver.org) paradigm. 
 
 ## Version History
 
@@ -72,6 +72,7 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 - [2.0.0][tag-2.0.0] Updating dependency on PureSwiftUI to 2.0.0. Breaking changes in PureSwiftUI 2.0.0 (although only on the type system) so be careful if using this library to pull in PureSwiftUI. 
 - [2.0.1][tag-2.0.1] Updating dependency on PureSwiftUI to 2.0.1. 
 - [2.0.2][tag-2.0.2] Updating dependency on PureSwiftUI to 2.0.1 to next major version.
+- [3.0.0][tag-3.0.0] Updating dependency on PureSwiftUI to 3.0.0 to next major version.
 
 ## Licensing
 
@@ -111,6 +112,7 @@ version links:
 [tag-2.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.0
 [tag-2.0.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.1
 [tag-2.0.2]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.2
+[tag-3.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/3.0.0
 
 
 <!---
