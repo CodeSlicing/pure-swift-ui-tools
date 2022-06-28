@@ -9,8 +9,8 @@ import PureSwiftUI
 
 public let ps_defaultInnerShadowColor = Color(white: 0.56)
 
-private func convertIntensityToColor<T: UINumericType>(_ intensity: T) -> Color {
-    return Color(white: 1 - intensity.asDouble.clamped(to: 1, spanZero: false))
+private func convertIntensityToColor(_ intensity: CGFloat) -> Color {
+    return Color(white: 1 - intensity.asDouble.clamped(max: 1, abs: false))
 }
 
 public struct PS_InnerShadowConfig {
@@ -21,35 +21,35 @@ public struct PS_InnerShadowConfig {
     let angle: Angle!
     let color: Color!
     
-    private init<TR: UINumericType>(radiusInternal: TR, offsetLength: CGFloat? = nil, offset: CGPoint? = nil, angle: Angle? = nil, color: Color = ps_defaultInnerShadowColor) {
-        self.radius = radiusInternal.asCGFloat
+    private init(radiusInternal: CGFloat, offsetLength: CGFloat? = nil, offset: CGPoint? = nil, angle: Angle? = nil, color: Color = ps_defaultInnerShadowColor) {
+        self.radius = radiusInternal
         self.offsetLength = offsetLength
         self.offset = offset
         self.angle = angle
         self.color = color
     }
     
-    public init<TR: UINumericType, TO: UINumericType>(radius: TR, offsetLength: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) {
-        self.init(radiusInternal: radius, offsetLength: offsetLength.asCGFloat, angle: angle, color: color)
+    public init(radius: CGFloat, offsetLength: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) {
+        self.init(radiusInternal: radius, offsetLength: offsetLength, angle: angle, color: color)
     }
     
-    public init<TR: UINumericType, TO: UINumericType, TI: UINumericType>(radius: TR, offsetLength: TO, angle: Angle, intensity: TI) {
+    public init(radius: CGFloat, offsetLength: CGFloat, angle: Angle, intensity: CGFloat) {
         self.init(radius: radius, offsetLength: offsetLength, angle: angle, color: convertIntensityToColor(intensity))
     }
 
-    public init<TR: UINumericType>(radius: TR, offset: CGPoint, color: Color = ps_defaultInnerShadowColor) {
+    public init(radius: CGFloat, offset: CGPoint, color: Color = ps_defaultInnerShadowColor) {
         self.init(radiusInternal: radius, offset: offset, color: color)
     }
     
-    public init<TR: UINumericType, TI: UINumericType>(radius: TR, offset: CGPoint, intensity: TI) {
+    public init(radius: CGFloat, offset: CGPoint, intensity: CGFloat) {
         self.init(radius: radius, offset: offset, color: convertIntensityToColor(intensity))
     }
     
-    public init<TR: UINumericType>(radius: TR, color: Color = ps_defaultInnerShadowColor) {
+    public init(radius: CGFloat, color: Color = ps_defaultInnerShadowColor) {
         self.init(radiusInternal: radius, offset: .zero, color: color)
     }
     
-    public init<TR: UINumericType, TI: UINumericType>(radius: TR, intensity: TI) {
+    public init(radius: CGFloat, intensity: CGFloat) {
         self.init(radius: radius, offset: .zero, intensity: intensity)
     }
     
@@ -60,27 +60,27 @@ public struct PS_InnerShadowConfig {
 
 public extension PS_InnerShadowConfig {
     
-    static func config<TR: UINumericType, TI: UINumericType>(radius: TR, intensity: TI) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, intensity: CGFloat) -> PS_InnerShadowConfig {
         config(radius: radius, offset: .zero, intensity: intensity)
     }
     
-    static func config<TR: UINumericType>(radius: TR, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
         config(radius: radius, offset: .zero, color: color)
     }
     
-    static func config<TR: UINumericType, TO: UINumericType, TI: UINumericType>(radius: TR, offset: TO, angle: Angle, intensity: TI) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, offset: CGFloat, angle: Angle, intensity: CGFloat) -> PS_InnerShadowConfig {
         config(radius: radius, offset: offset, angle: angle, color: convertIntensityToColor(intensity))
     }
     
-    static func config<TR: UINumericType, TO: UINumericType>(radius: TR, offset: TO, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, offset: CGFloat, angle: Angle, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
         PS_InnerShadowConfig(radius: radius, offsetLength: offset, angle: angle, color: color)
     }
 
-    static func config<TR: UINumericType, TI: UINumericType>(radius: TR, offset: CGPoint, intensity: TI) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, offset: CGPoint, intensity: CGFloat) -> PS_InnerShadowConfig {
         config(radius: radius, offset: offset, color: convertIntensityToColor(intensity))
     }
     
-    static func config<TR: UINumericType>(radius: TR, offset: CGPoint, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
+    static func config(radius: CGFloat, offset: CGPoint, color: Color = ps_defaultInnerShadowColor) -> PS_InnerShadowConfig {
         PS_InnerShadowConfig(radius: radius, offset: offset, color: color)
     }
 }
@@ -121,12 +121,12 @@ public struct StrokeAndContent<V: View> {
 }
 
 public extension StrokeAndContent {
-    static func stroke<T: UINumericType>(lineWidth: T) -> StrokeAndContent<Color> {
+    static func stroke(lineWidth: CGFloat) -> StrokeAndContent<Color> {
         stroke(Color.clear, lineWidth: lineWidth)
     }
     
-    static func stroke<V: View, T: UINumericType>(_ content: V, lineWidth: T) -> StrokeAndContent<V> {
-        StrokeAndContent<V>(StrokeStyle(lineWidth: lineWidth.asCGFloat), .fill(content))
+    static func stroke<V: View>(_ content: V, lineWidth:CGFloat) -> StrokeAndContent<V> {
+        StrokeAndContent<V>(StrokeStyle(lineWidth: lineWidth), .fill(content))
     }
     
     static func stroke(style: StrokeStyle) -> StrokeAndContent<Color> {
@@ -182,11 +182,11 @@ public extension ShapeAndContent {
         ShapeAndContent<Rectangle, V>(Rectangle(), content)
     }
     
-    static func roundedRectangle<T: UINumericType>(_ cornerRadius: T) -> ShapeAndContent<RoundedRectangle, Color> {
+    static func roundedRectangle(_ cornerRadius: CGFloat) -> ShapeAndContent<RoundedRectangle, Color> {
         roundedRectangle(cornerRadius, Color.clear)
     }
     
-    static func roundedRectangle<T: UINumericType, V: View>(_ cornerRadius: T, _ content: V? = nil) -> ShapeAndContent<RoundedRectangle, V> {
+    static func roundedRectangle<V: View>(_ cornerRadius: CGFloat, _ content: V? = nil) -> ShapeAndContent<RoundedRectangle, V> {
         ShapeAndContent<RoundedRectangle, V>(RoundedRectangle(cornerRadius), content)
     }
 }

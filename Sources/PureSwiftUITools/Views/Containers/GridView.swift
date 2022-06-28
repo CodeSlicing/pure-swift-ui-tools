@@ -23,14 +23,14 @@ public struct GridView<Content: View>: View {
         self.init(size, size, spacing: 0, content: content)
     }
     
-    public init<T: UINumericType>(_ size: Int, spacing: T, @ViewBuilder content: @escaping (Int, Int) -> Content) {
+    public init(_ size: Int, spacing: CGFloat, @ViewBuilder content: @escaping (Int, Int) -> Content) {
         self.init(size, size, spacing: spacing, content: content)
     }
     
-    public init<T: UINumericType>(_ columns: Int, _ rows: Int, spacing: T, @ViewBuilder content: @escaping (Int, Int) -> Content) {
+    public init(_ columns: Int, _ rows: Int, spacing: CGFloat, @ViewBuilder content: @escaping (Int, Int) -> Content) {
         self.columns = columns
         self.rows = rows
-        self.spacing = spacing.asCGFloat
+        self.spacing = spacing
         self.content = content
     }
     

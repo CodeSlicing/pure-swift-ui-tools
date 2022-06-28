@@ -60,7 +60,7 @@ Instructions for installing swift packages can be found [here][swift-package-ins
 
 ## Versioning
 
-This project adheres to a [semantic versioning](https://semver.org) paradigm. I'm sure a lot will change after WW20, so that's probably when version 2.0.0+ will appear.
+This project adheres to a [semantic versioning](https://semver.org) paradigm. 
 
 ## Version History
 
@@ -68,6 +68,11 @@ This project adheres to a [semantic versioning](https://semver.org) paradigm. I'
 - [1.1.0][tag-1.1.0] Add GradientMap and RGBA with appropriate supporting extensions
 - [1.2.0][tag-1.2.0] Add inner shadows
 - [1.3.0][tag-1.3.0] Fix segmentation fault in Xcode 11.4
+- [1.3.1][tag-1.3.1] Updating dependency on PureSwiftUI to 1.20.0
+- [2.0.0][tag-2.0.0] Updating dependency on PureSwiftUI to 2.0.0. Breaking changes in PureSwiftUI 2.0.0 (although only on the type system) so be careful if using this library to pull in PureSwiftUI. 
+- [2.0.1][tag-2.0.1] Updating dependency on PureSwiftUI to 2.0.1. 
+- [2.0.2][tag-2.0.2] Updating dependency on PureSwiftUI to 2.0.1 to next major version.
+- [3.0.0][tag-3.0.0] Updating dependency on PureSwiftUI to 3.0.0 to next major version.
 
 ## Licensing
 
@@ -86,7 +91,7 @@ You can contact me on Twitter [@CodeSlice][codeslice-twitter]. Happy to hear sug
 [codeslice-twitter]: https://twitter.com/CodeSlice
 [swift-ui]: https://developer.apple.com/xcode/swiftui/
 [swift-functions]: https://docs.swift.org/swift-book/LanguageGuide/Functions.html
-[swift-package-installation]: https://medium.com/better-programming/add-swift-package-dependency-to-an-ios-project-with-xcode-11-remote-local-public-private-3a7577fac6b2
+[swift-package-installation]: https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app
 
 <!---
 gists:
@@ -103,6 +108,11 @@ version links:
 [tag-1.1.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.1.0
 [tag-1.2.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.2.0
 [tag-1.3.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.0
+[tag-1.3.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/1.3.1
+[tag-2.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.0
+[tag-2.0.1]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.1
+[tag-2.0.2]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/2.0.2
+[tag-3.0.0]: https://github.com/CodeSlicing/pure-swift-ui-rools/tree/3.0.0
 
 
 <!---
@@ -113,3 +123,4 @@ version links:
 [containers-grid-view]: ./Assets/Docs/Components/Containers/GridView/grid-view.md
 [gradient-map]: ./Assets/Docs/Components/Model/Color/gradient-map.md
 [inner-shadows]: ./Assets/Docs/Components/Extensions/InnerShadows/inner-shadows.md
+

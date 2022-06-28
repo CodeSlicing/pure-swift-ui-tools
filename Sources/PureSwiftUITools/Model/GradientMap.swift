@@ -103,7 +103,7 @@ public struct GradientMap {
 public extension GradientMap {
 
     private func fractionAsIndex(_ fraction: Double) -> Int {
-        (fraction * (count - 1)).asInt
+        (fraction * (count - 1).asDouble).asInt
     }
     
     func colorAt(_ fraction: Double, default defaultColor: Color = .clear) -> Color {
@@ -122,6 +122,7 @@ public extension GradientMap {
         internalMapValue(at: index)?.rgba ?? defaultColor
     }
 
+    #if !os(watchOS)
     func ciColorAt(_ fraction: Double, default defaultColor: CIColor = .clear) -> CIColor {
         internalMapValue(at: fractionAsIndex(fraction))?.rgba.asCIColor ?? defaultColor
     }
@@ -129,7 +130,9 @@ public extension GradientMap {
     func ciColorAt(index: Int, default defaultColor: CIColor = .clear) -> CIColor {
         internalMapValue(at: index)?.rgba.asCIColor ?? defaultColor
     }
-    
+    #endif
+
+    #if canImport(UIKit)
     func uiColorAt(_ fraction: Double, default defaultColor: UIColor = .clear) -> UIColor {
         internalMapValue(at: fractionAsIndex(fraction))?.rgba.asUIColor ?? defaultColor
     }
@@ -137,7 +140,9 @@ public extension GradientMap {
     func uiColorAt(index: Int, default defaultColor: UIColor = .clear) -> UIColor {
         internalMapValue(at: index)?.rgba.asUIColor ?? defaultColor
     }
-    
+    #endif
+
+    #if !os(watchOS)
     func cgColorAt(_ fraction: Double, default defaultColor: CGColor = .clear) -> CGColor {
         internalMapValue(at: fractionAsIndex(fraction))?.rgba.asCGColor ?? defaultColor
     }
@@ -145,4 +150,13 @@ public extension GradientMap {
     func cgColorAt(index: Int, default defaultColor: CGColor = .clear) -> CGColor {
         internalMapValue(at: index)?.rgba.asCGColor ?? defaultColor
     }
+    #else
+    func cgColorAt(_ fraction: Double, default defaultColor: CGColor = UIColor.clear.cgColor) -> CGColor {
+        internalMapValue(at: fractionAsIndex(fraction))?.rgba.asCGColor ?? defaultColor
+    }
+
+    func cgColorAt(index: Int, default defaultColor: CGColor = UIColor.clear.cgColor) -> CGColor {
+        internalMapValue(at: index)?.rgba.asCGColor ?? defaultColor
+    }
+    #endif
 }
