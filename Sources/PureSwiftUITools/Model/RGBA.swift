@@ -80,6 +80,7 @@ public extension RGBA {
     static let pureBlue = RGBA(0, 0, 1)
     static let pureYellow = RGBA(1, 1, 0)
     static let pureMagenta = RGBA(1, 0, 1)
+    static let pureCyan = RGBA(0, 1, 1)
     static let pureOrange = RGBA(1, 0.5, 0)
     static let purePurple = RGBA(0.5, 0, 0.5)
 }
